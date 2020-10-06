@@ -18,7 +18,7 @@ class Feed
     public function create(string $path = 'google_shopping_feed.xml'): void
     {
         $feed = new GoogleShoppingFeed(
-            'Villa Brocante',
+            $this->getBrand(),
             'https://www.villa-brocante.de',
             'Individuelle Echtholz / Massivholzmöbel nach Maß: Küchentische & Esstische · Kommoden · Couchtische · Designerstücke · Stühle · Holzfliegen / Woodfly'
         );
@@ -51,6 +51,7 @@ class Feed
                 $product->setMpn($item->gsf_mpn);
             }
 
+            $product->setBrand($this->getBrand());
             $product->setLink(News::generateNewsUrl($item));
             $product->setAvailability(Availability::IN_STOCK);
 
@@ -68,6 +69,13 @@ class Feed
         $host = $root->dns;
 
         return $scheme . $host;
+    }
+
+    private function getBrand(): string
+    {
+        $root = PageModel::findPublishedRootPages();
+
+        return $root->title;
     }
 
     private function extractPrice(string $text, string $currency = '€'): string
