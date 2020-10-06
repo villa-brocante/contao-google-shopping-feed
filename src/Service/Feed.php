@@ -40,7 +40,7 @@ class Feed
             $product->setDescription($item->description);
 
             if(!empty($item->singleSRC)) {
-                $product->setImage('https://www.villa-brocante.de/' . FilesModel::findByUuid($item->singleSRC)->path);
+                $product->setImage($this->getBaseUrl() . '/' . FilesModel::findByUuid($item->singleSRC)->path);
             }
 
             if(!empty($item->gsf_gtin)) {
@@ -54,6 +54,16 @@ class Feed
         });
 
         return $feed;
+    }
+
+    private function getBaseUrl(): string
+    {
+        $root = PageModel::findPublishedRootPages();
+
+        $scheme = $root->rootUseSSL ? 'https://' : 'http://';
+        $host = $root->dns;
+
+        return $scheme . $host;
     }
 
     private function extractPrice(string $text, string $currency = '€'): string
