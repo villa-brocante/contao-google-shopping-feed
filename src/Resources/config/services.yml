@@ -9,4 +9,4 @@ services:
         tags:
             -
                 name: contao.cronjob
-                interval: "* * * * *"
+                interval: "0 */12 * * *"
