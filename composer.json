@@ -1,0 +1,28 @@
+{
+    "name":"villa-brocante/contao-google-shopping-feed",
+    "type": "contao-bundle",
+    "require": {
+        "contao/core-bundle": "^4.9",
+        "contao/news-bundle": "^4.9",
+        "illuminate/collections": "^8.8",
+        "sabre/xml": "^2.2",
+        "vitalybaev/google-merchant-feed": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "VillaBrocante\\GoogleShoppingFeed\\": "src/"
+        },
+        "classmap": [
+            "src/Resources/contao/"
+        ],
+        "exclude-from-classmap": [
+            "src/Resources/contao/config/",
+            "src/Resources/contao/dca/",
+            "src/Resources/contao/languages/",
+            "src/Resources/contao/templates/"
+        ]
+    },
+    "extra": {
+        "contao-manager-plugin": "VillaBrocante\\GoogleShoppingFeed\\ContaoManager\\Plugin"
+    }
+}

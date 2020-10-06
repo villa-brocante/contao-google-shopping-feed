@@ -1,0 +1,12 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+
+    VillaBrocante\GoogleShoppingFeed\Service\Feed:
+
+    VillaBrocante\GoogleShoppingFeed\Cron\CreateFeed:
+        tags:
+            -
+                name: contao.cronjob
+                interval: "* * * * *"
