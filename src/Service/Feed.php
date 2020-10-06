@@ -2,7 +2,6 @@
 
 namespace VillaBrocante\GoogleShoppingFeed\Service;
 
-use Contao\Environment;
 use Contao\File;
 use Contao\FilesModel;
 use Contao\News;
@@ -10,6 +9,7 @@ use Contao\NewsModel;
 use Contao\PageModel;
 use Vitalybaev\GoogleMerchant\Feed as GoogleShoppingFeed;
 use Vitalybaev\GoogleMerchant\Product;
+use Vitalybaev\GoogleMerchant\Product\Availability\Availability;
 
 class Feed
 {
@@ -47,8 +47,12 @@ class Feed
                 $product->setGtin($item->gsf_gtin);
             }
 
-            $product->setMpn($item->gsf_mpn);
+            if(!empty($item->gsf_mpn)) {
+                $product->setMpn($item->gsf_mpn);
+            }
+
             $product->setLink(News::generateNewsUrl($item));
+            $product->setAvailability(Availability::IN_STOCK);
 
             $feed->addProduct($product);
         });
