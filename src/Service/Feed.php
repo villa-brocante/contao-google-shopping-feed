@@ -7,6 +7,8 @@ use Contao\FilesModel;
 use Contao\News;
 use Contao\NewsModel;
 use Contao\PageModel;
+use Contao\StringUtil;
+use Contao\System;
 use Vitalybaev\GoogleMerchant\Feed as GoogleShoppingFeed;
 use Vitalybaev\GoogleMerchant\Product;
 use Vitalybaev\GoogleMerchant\Product\Availability\Availability;
@@ -14,7 +16,14 @@ use Vitalybaev\GoogleMerchant\Product\Shipping;
 
 class Feed
 {
-    const GSF_DIR = '/files/feeds';
+    private string $gsf_dir;
+
+    public function __construct()
+    {
+        $this->gsf_dir = StringUtil::stripRootDir(
+            System::getContainer()->getParameter('contao.web_dir') . '/files/feeds'
+        );
+    }
 
     public function create(string $path = 'google_shopping_feed.xml'): void
     {
@@ -26,7 +35,7 @@ class Feed
 
         $xml = $this->getProducts($feed)->build();
 
-        File::putContent(self::GSF_DIR . '/' . $path, $xml);
+        File::putContent($this->gsf_dir . '/' . $path, $xml);
     }
 
     protected function getProducts(GoogleShoppingFeed $feed): GoogleShoppingFeed
