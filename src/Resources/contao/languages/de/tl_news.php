@@ -10,4 +10,5 @@ $GLOBALS['TL_LANG']['tl_news']['gsf_gtin'][1] = 'European Article Number (EAN), 
 $GLOBALS['TL_LANG']['tl_news']['gsf_mpn'][0] = 'MPN (Manufacturer Part Number)';
 $GLOBALS['TL_LANG']['tl_news']['gsf_mpn'][1] = 'Die Nummer, die das Produkt eindeutig seinem Hersteller zuordnet';
 
-
+$GLOBALS['TL_LANG']['tl_news']['gsf_shipping_costs'][0] = 'Versandkosten (in EUR)';
+$GLOBALS['TL_LANG']['tl_news']['gsf_shipping_costs'][1] = 'Versandkosten des Produktes in Deutschland';

@@ -55,6 +55,10 @@ class Feed
             $product->setLink(News::generateNewsUrl($item));
             $product->setAvailability(Availability::IN_STOCK);
 
+            if(!empty($item->gsf_shipping_costs)) {
+                $product->setShipping($item->gsf_shipping_costs);
+            }
+
             $feed->addProduct($product);
         });
 

@@ -9,7 +9,7 @@ PaletteManipulator::create()
     ->addField('gsf_mpn', 'gsf_legend', PaletteManipulator::POSITION_APPEND)
     ->applyToPalette('default', 'tl_news');
 
-//Beschreibung des Feldes
+// Field: Activate for GSF
 $GLOBALS['TL_DCA']['tl_news']['fields']['use_in_gsf'] = array(
     'label'     => &$GLOBALS['TL_LANG']['tl_news']['activate_for_gsf'],
     'exclude'   => true,
@@ -18,7 +18,7 @@ $GLOBALS['TL_DCA']['tl_news']['fields']['use_in_gsf'] = array(
     'sql'       => "char(1) NOT NULL default ''"
 );
 
-// GTIN
+// Field: GTIN
 $GLOBALS['TL_DCA']['tl_news']['fields']['gsf_gtin'] = array(
     'label'     => &$GLOBALS['TL_LANG']['tl_news']['gsf_gtin'],
     'exclude'   => true,
@@ -27,11 +27,20 @@ $GLOBALS['TL_DCA']['tl_news']['fields']['gsf_gtin'] = array(
     'sql'       => "varchar(15) default ''"
 );
 
-// MPN
+// Field: MPN
 $GLOBALS['TL_DCA']['tl_news']['fields']['gsf_mpn'] = array(
     'label'     => &$GLOBALS['TL_LANG']['tl_news']['gsf_mpn'],
     'exclude'   => true,
     'inputType' => 'text',
     'eval'      => ['tl_class' => 'w50'],
     'sql'       => "varchar(15) default ''"
+);
+
+// Field: Shipping costs
+$GLOBALS['TL_DCA']['tl_news']['fields']['gsf_shipping_costs'] = array(
+    'label'     => &$GLOBALS['TL_LANG']['tl_news']['gsf_shipping_costs'],
+    'exclude'   => true,
+    'inputType' => 'text',
+    'eval'      => ['tl_class' => 'w50'],
+    'sql'       => "decimal(4,2) default ''"
 );
