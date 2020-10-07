@@ -10,6 +10,7 @@ use Contao\PageModel;
 use Vitalybaev\GoogleMerchant\Feed as GoogleShoppingFeed;
 use Vitalybaev\GoogleMerchant\Product;
 use Vitalybaev\GoogleMerchant\Product\Availability\Availability;
+use Vitalybaev\GoogleMerchant\Product\Shipping;
 
 class Feed
 {
@@ -56,7 +57,10 @@ class Feed
             $product->setAvailability(Availability::IN_STOCK);
 
             if(!empty($item->gsf_shipping_costs)) {
-                $product->setShipping($item->gsf_shipping_costs);
+                $shipping = new Shipping();
+                $shipping->setCountry('DE');
+                $shipping->setPrice($item->gsf_shipping_costs . ' €');
+                $product->setShipping($shipping);
             }
 
             $feed->addProduct($product);
