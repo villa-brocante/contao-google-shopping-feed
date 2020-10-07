@@ -7,6 +7,7 @@ PaletteManipulator::create()
     ->addField('use_in_gsf', 'gsf_legend', PaletteManipulator::POSITION_APPEND)
     ->addField('gsf_gtin', 'gsf_legend', PaletteManipulator::POSITION_APPEND)
     ->addField('gsf_mpn', 'gsf_legend', PaletteManipulator::POSITION_APPEND)
+    ->addField('gsf_shipping_costs', 'gsf_legend', PaletteManipulator::POSITION_APPEND)
     ->applyToPalette('default', 'tl_news');
 
 // Field: Activate for GSF
