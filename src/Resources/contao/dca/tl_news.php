@@ -42,5 +42,5 @@ $GLOBALS['TL_DCA']['tl_news']['fields']['gsf_shipping_costs'] = array(
     'exclude'   => true,
     'inputType' => 'text',
     'eval'      => ['tl_class' => 'w50'],
-    'sql'       => "decimal(4,2) default ''"
+    'sql'       => "decimal(4,2) default NULL"
 );
