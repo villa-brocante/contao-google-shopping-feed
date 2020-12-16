@@ -3,7 +3,7 @@
     "type": "contao-bundle",
     "require": {
         "contao/core-bundle": "^4.9",
-        "contao/news-bundle": "^4.9",
+        "contao/news-bundle": "^4.10",
         "illuminate/collections": "^8.8",
         "sabre/xml": "^2.2",
         "vitalybaev/google-merchant-feed": "^2.0"
