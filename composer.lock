@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "74ae5c951ac6d681c76dd207b54027b5",
+    "content-hash": "5ec3ae51061943abd5023f4345e0b526",
     "packages": [
         {
             "name": "ausi/slug-generator",
@@ -2920,25 +2920,25 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v8.8.0",
+            "version": "v8.19.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
-                "reference": "406686622f946b905d34825e40e5f855f7899009"
+                "reference": "4647141880c193a0edaa91754004d8bc7471e56b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/collections/zipball/406686622f946b905d34825e40e5f855f7899009",
-                "reference": "406686622f946b905d34825e40e5f855f7899009",
+                "url": "https://api.github.com/repos/illuminate/collections/zipball/4647141880c193a0edaa91754004d8bc7471e56b",
+                "reference": "4647141880c193a0edaa91754004d8bc7471e56b",
                 "shasum": ""
             },
             "require": {
                 "illuminate/contracts": "^8.0",
                 "illuminate/macroable": "^8.0",
-                "php": "^7.3"
+                "php": "^7.3|^8.0"
             },
             "suggest": {
-                "symfony/var-dumper": "Required to use the dump method (^5.1)."
+                "symfony/var-dumper": "Required to use the dump method (^5.1.4)."
             },
             "type": "library",
             "extra": {
@@ -2970,24 +2970,24 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2020-09-30T13:09:00+00:00"
+            "time": "2020-12-08T17:15:16+00:00"
         },
         {
             "name": "illuminate/contracts",
-            "version": "v8.8.0",
+            "version": "v8.19.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
-                "reference": "37ec3d86c2761628957b6d762ecd3bd27da754bd"
+                "reference": "ecc0ae5e02efa49b50efac567f410911f75fd993"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/contracts/zipball/37ec3d86c2761628957b6d762ecd3bd27da754bd",
-                "reference": "37ec3d86c2761628957b6d762ecd3bd27da754bd",
+                "url": "https://api.github.com/repos/illuminate/contracts/zipball/ecc0ae5e02efa49b50efac567f410911f75fd993",
+                "reference": "ecc0ae5e02efa49b50efac567f410911f75fd993",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.3",
+                "php": "^7.3|^8.0",
                 "psr/container": "^1.0",
                 "psr/simple-cache": "^1.0"
             },
@@ -3018,24 +3018,24 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2020-09-16T13:57:35+00:00"
+            "time": "2020-12-11T14:35:03+00:00"
         },
         {
             "name": "illuminate/macroable",
-            "version": "v8.8.0",
+            "version": "v8.19.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
-                "reference": "561442f134eaf4d3f710bf523ecfe1537fa53f64"
+                "reference": "300aa13c086f25116b5f3cde3ca54ff5c822fb05"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/macroable/zipball/561442f134eaf4d3f710bf523ecfe1537fa53f64",
-                "reference": "561442f134eaf4d3f710bf523ecfe1537fa53f64",
+                "url": "https://api.github.com/repos/illuminate/macroable/zipball/300aa13c086f25116b5f3cde3ca54ff5c822fb05",
+                "reference": "300aa13c086f25116b5f3cde3ca54ff5c822fb05",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.3"
+                "php": "^7.3|^8.0"
             },
             "type": "library",
             "extra": {
@@ -3064,7 +3064,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2020-06-08T14:13:16+00:00"
+            "time": "2020-10-27T15:20:30+00:00"
         },
         {
             "name": "imagine/imagine",
