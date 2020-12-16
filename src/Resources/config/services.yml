@@ -4,6 +4,8 @@ services:
         autowire: true
 
     VillaBrocante\GoogleShoppingFeed\Service\Feed:
+        arguments:
+            - '%contao.web_dir%'
 
     VillaBrocante\GoogleShoppingFeed\Cron\CreateFeed:
         tags:

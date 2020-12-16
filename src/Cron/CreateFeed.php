@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace VillaBrocante\GoogleShoppingFeed\Cron;
 
+use Contao\CoreBundle\Cron\Cron;
 use VillaBrocante\GoogleShoppingFeed\Service\Feed as FeedService;
 
 class CreateFeed
@@ -17,6 +18,10 @@ class CreateFeed
 
     public function __invoke(string $scope): void
     {
+        if (Cron::SCOPE_WEB === $scope) {
+            return;
+        }
+
         $this->feedService->create();
     }
 }

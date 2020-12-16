@@ -8,7 +8,6 @@ use Contao\News;
 use Contao\NewsModel;
 use Contao\PageModel;
 use Contao\StringUtil;
-use Contao\System;
 use Vitalybaev\GoogleMerchant\Feed as GoogleShoppingFeed;
 use Vitalybaev\GoogleMerchant\Product;
 use Vitalybaev\GoogleMerchant\Product\Availability\Availability;
@@ -18,11 +17,9 @@ class Feed
 {
     private string $gsf_dir;
 
-    public function __construct()
+    public function __construct(string $webDir)
     {
-        $this->gsf_dir = StringUtil::stripRootDir(
-            System::getContainer()->getParameter('contao.web_dir') . '/files/feeds'
-        );
+        $this->gsf_dir = $webDir . '/files/feeds';
     }
 
     public function create(string $path = 'google_shopping_feed.xml'): void
@@ -49,15 +46,15 @@ class Feed
             $product->setPrice($this->extractPrice($item->teaser));
             $product->setDescription($item->description);
 
-            if(!empty($item->singleSRC)) {
+            if (!empty($item->singleSRC)) {
                 $product->setImage($this->getBaseUrl() . '/' . FilesModel::findByUuid($item->singleSRC)->path);
             }
 
-            if(!empty($item->gsf_gtin)) {
+            if (!empty($item->gsf_gtin)) {
                 $product->setGtin($item->gsf_gtin);
             }
 
-            if(!empty($item->gsf_mpn)) {
+            if (!empty($item->gsf_mpn)) {
                 $product->setMpn($item->gsf_mpn);
             }
 
@@ -65,7 +62,7 @@ class Feed
             $product->setLink(News::generateNewsUrl($item));
             $product->setAvailability(Availability::IN_STOCK);
 
-            if(!empty($item->gsf_shipping_costs)) {
+            if (!empty($item->gsf_shipping_costs)) {
                 $shipping = new Shipping();
                 $shipping->setCountry('DE');
                 $shipping->setPrice($item->gsf_shipping_costs . ' €');
@@ -100,7 +97,7 @@ class Feed
         preg_match('/price">(.*)€/', $text, $matches);
         $price = '';
 
-        if(isset($matches[1]) && !empty($matches[1])) {
+        if (isset($matches[1]) && !empty($matches[1])) {
             $price = trim($matches[1]) . ' ' . $currency;
         }
 
