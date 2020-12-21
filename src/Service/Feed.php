@@ -2,12 +2,11 @@
 
 namespace VillaBrocante\GoogleShoppingFeed\Service;
 
-use Contao\File;
 use Contao\FilesModel;
 use Contao\News;
 use Contao\NewsModel;
 use Contao\PageModel;
-use Contao\StringUtil;
+use League\Flysystem\FilesystemInterface;
 use Vitalybaev\GoogleMerchant\Feed as GoogleShoppingFeed;
 use Vitalybaev\GoogleMerchant\Product;
 use Vitalybaev\GoogleMerchant\Product\Availability\Availability;
@@ -15,27 +14,31 @@ use Vitalybaev\GoogleMerchant\Product\Shipping;
 
 class Feed
 {
-    private string $gsf_dir;
+    private FilesystemInterface $feedStorage;
 
-    public function __construct(string $webDir)
+    public function __construct(FilesystemInterface $defaultStorage)
     {
-        $this->gsf_dir = $webDir . '/files/feeds';
+        $this->feedStorage = $defaultStorage;
     }
 
-    public function create(string $path = 'google_shopping_feed.xml'): void
+    public function create(string $path = 'google_shopping_feed.xml'): bool
     {
-        $feed = new GoogleShoppingFeed(
-            $this->getBrand(),
+        $feed = $this->createFeed($this->getBrand());
+        $xml = $this->getProducts($feed)->build();
+
+        return $this->writeFeedFile($path, $xml);
+    }
+
+    public function createFeed(string $brand): GoogleShoppingFeed
+    {
+        return new GoogleShoppingFeed(
+            $brand,
             'https://www.villa-brocante.de',
             'Individuelle Echtholz / Massivholzmöbel nach Maß: Küchentische & Esstische · Kommoden · Couchtische · Designerstücke · Stühle · Holzfliegen / Woodfly'
         );
-
-        $xml = $this->getProducts($feed)->build();
-
-        File::putContent($this->gsf_dir . '/' . $path, $xml);
     }
 
-    protected function getProducts(GoogleShoppingFeed $feed): GoogleShoppingFeed
+    public function getProducts(GoogleShoppingFeed $feed): GoogleShoppingFeed
     {
         $products = collect(NewsModel::findBy('use_in_gsf', 1));
 
@@ -102,5 +105,10 @@ class Feed
         }
 
         return $price;
+    }
+
+    public function writeFeedFile(string $file, string $content): bool
+    {
+        return $this->feedStorage->write($file, $content);
     }
 }

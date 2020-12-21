@@ -9,6 +9,7 @@ use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
 use Contao\NewsBundle\ContaoNewsBundle;
+use League\FlysystemBundle\FlysystemBundle;
 use VillaBrocante\GoogleShoppingFeed\GoogleShoppingFeedBundle;
 
 class Plugin implements BundlePluginInterface
@@ -20,11 +21,16 @@ class Plugin implements BundlePluginInterface
     public function getBundles(ParserInterface $parser): array
     {
         return [
+            BundleConfig::create(FlysystemBundle::class)
+                ->setLoadAfter([
+                    FrameworkBundle::class,
+                ]),
             BundleConfig::create(GoogleShoppingFeedBundle::class)
-                        ->setLoadAfter([
-                            ContaoCoreBundle::class,
-                            ContaoNewsBundle::class,
-                        ]),
+                ->setLoadAfter([
+                    ContaoCoreBundle::class,
+                    ContaoNewsBundle::class,
+                    FlysystemBundle::class,
+                ]),
         ];
     }
 }

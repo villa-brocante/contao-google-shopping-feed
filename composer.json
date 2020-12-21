@@ -6,7 +6,9 @@
         "contao/news-bundle": "^4.10",
         "illuminate/collections": "^8.8",
         "sabre/xml": "^2.2",
-        "vitalybaev/google-merchant-feed": "^2.0"
+        "vitalybaev/google-merchant-feed": "^2.0",
+        "league/flysystem-bundle": "^1.5",
+        "contao/manager-plugin": "^2.11"
     },
     "autoload": {
         "psr-4": {
@@ -31,6 +33,9 @@
         "contao/test-case": "^4.2",
         "phpunit/phpunit": "^9.5",
         "roave/security-advisories": "dev-latest"
+    },
+    "config": {
+        "sort-packages": true
     },
     "extra": {
         "contao-manager-plugin": "VillaBrocante\\GoogleShoppingFeed\\ContaoManager\\Plugin"
