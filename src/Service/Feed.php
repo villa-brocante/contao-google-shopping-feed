@@ -6,8 +6,9 @@ use Contao\FilesModel;
 use Contao\News;
 use Contao\NewsModel;
 use Contao\PageModel;
+use Illuminate\Support\Collection;
 use League\Flysystem\FilesystemInterface;
-use Vitalybaev\GoogleMerchant\Feed as GoogleShoppingFeed;
+use Vitalybaev\GoogleMerchant\Feed as GoogleMerchantFeed;
 use Vitalybaev\GoogleMerchant\Product;
 use Vitalybaev\GoogleMerchant\Product\Availability\Availability;
 use Vitalybaev\GoogleMerchant\Product\Shipping;
@@ -15,34 +16,36 @@ use Vitalybaev\GoogleMerchant\Product\Shipping;
 class Feed
 {
     private FilesystemInterface $feedStorage;
+    private GoogleMerchantFeed $googleMerchantFeed;
+    private string $xmlFileName;
 
-    public function __construct(FilesystemInterface $defaultStorage)
+    public function __construct(FilesystemInterface $feedStorage, GoogleMerchantFeed $googleMerchantFeed, string $xmlFileName)
     {
-        $this->feedStorage = $defaultStorage;
+        $this->feedStorage = $feedStorage;
+        $this->googleMerchantFeed = $googleMerchantFeed;
+        $this->xmlFileName = $xmlFileName;
     }
 
-    public function create(string $path = 'google_shopping_feed.xml'): bool
+    public function create(): bool
     {
-        $feed = $this->createFeed($this->getBrand());
-        $xml = $this->getProducts($feed)->build();
+        $content = $this->googleMerchantFeed($this->googleMerchantFeed)->build();
 
-        return $this->writeFeedFile($path, $xml);
+        return $this->writeFeedFile($this->xmlFileName, $content);
     }
 
-    public function createFeed(string $brand): GoogleShoppingFeed
+    public function getProductsCollection(): Collection
     {
-        return new GoogleShoppingFeed(
-            $brand,
-            'https://www.villa-brocante.de',
-            'Individuelle Echtholz / Massivholzmöbel nach Maß: Küchentische & Esstische · Kommoden · Couchtische · Designerstücke · Stühle · Holzfliegen / Woodfly'
+        $products = NewsModel::findBy(
+            ['use_in_gsf'],
+            [1]
         );
+
+        return collect($products);
     }
 
-    public function getProducts(GoogleShoppingFeed $feed): GoogleShoppingFeed
+    public function googleMerchantFeed(GoogleMerchantFeed $feed): GoogleMerchantFeed
     {
-        $products = collect(NewsModel::findBy('use_in_gsf', 1));
-
-        $products->each(function (NewsModel $item, $key) use (&$feed) {
+        $this->getProductsCollection()->each(function (NewsModel $item, $key) use (&$feed) {
             $product = new Product();
             $product->setId($item->id);
             $product->setTitle($item->headline);
@@ -63,7 +66,7 @@ class Feed
 
             $product->setBrand($this->getBrand());
             $product->setLink(News::generateNewsUrl($item));
-            $product->setAvailability(Availability::IN_STOCK);
+            $product->setAvailability($item->published ? Availability::IN_STOCK : Availability::OUT_OF_STOCK);
 
             if (!empty($item->gsf_shipping_costs)) {
                 $shipping = new Shipping();
@@ -109,6 +112,6 @@ class Feed
 
     public function writeFeedFile(string $file, string $content): bool
     {
-        return $this->feedStorage->write($file, $content);
+        return $this->feedStorage->put($file, $content);
     }
 }

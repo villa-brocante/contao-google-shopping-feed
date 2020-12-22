@@ -4,9 +4,20 @@ services:
         autowire: true
 
     VillaBrocante\GoogleShoppingFeed\Service\Feed:
+        arguments:
+            - '@feed.storage'
+            - '@google.merchant.feed'
+            - 'google_shopping_feed.xml'
 
     VillaBrocante\GoogleShoppingFeed\Cron\CreateFeed:
         tags:
             -
                 name: contao.cronjob
                 interval: "0 */12 * * *"
+
+    google.merchant.feed:
+        class: Vitalybaev\GoogleMerchant\Feed
+        arguments:
+            - 'MyBrandName'
+            - 'https://www.example.com'
+            - 'Description text'

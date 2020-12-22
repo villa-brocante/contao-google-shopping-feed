@@ -9,5 +9,6 @@ class FeedTest extends TestCase
 {
     public function testItCanInstantiate()
     {
+
     }
 }
