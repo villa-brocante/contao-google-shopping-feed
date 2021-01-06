@@ -1,6 +1,8 @@
 {
     "name":"villa-brocante/contao-google-shopping-feed",
     "type": "contao-bundle",
+    "description": "Provide access to Google Shopping Feed library for Contao CMS.",
+    "license": "MIT",
     "require": {
         "contao/core-bundle": "^4.10",
         "contao/news-bundle": "^4.10",
