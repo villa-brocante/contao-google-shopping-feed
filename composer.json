@@ -9,7 +9,7 @@
         "illuminate/collections": "^8.22",
         "sabre/xml": "^2.2",
         "vitalybaev/google-merchant-feed": "^2.0",
-        "league/flysystem-bundle": "^1.5",
+        "league/flysystem-bundle": "^2.0",
         "contao/manager-plugin": "^2.11"
     },
     "autoload": {
