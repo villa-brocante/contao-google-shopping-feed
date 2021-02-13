@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a74c0b66186057c592035e7eedb262fd",
+    "content-hash": "f1ccfd178b059309bb1cd0ea2a87691f",
     "packages": [
         {
             "name": "ausi/slug-generator",
@@ -2997,7 +2997,7 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v8.26.1",
+            "version": "v8.27.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
@@ -3051,7 +3051,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v8.26.1",
+            "version": "v8.27.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -3099,7 +3099,7 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v8.26.1",
+            "version": "v8.27.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
