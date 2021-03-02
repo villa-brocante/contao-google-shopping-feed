@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "553c694acd0868b72e1d7af343d87975",
+    "content-hash": "ac0b80d8f8507dba3fa740d5b59ba0ff",
     "packages": [
         {
             "name": "ausi/slug-generator",
@@ -11112,16 +11112,16 @@
         },
         {
             "name": "vitalybaev/google-merchant-feed",
-            "version": "v2.0.0",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vitalybaev/php-google-merchant-feed.git",
-                "reference": "80c8a51b526e429fffc6e089e77f082ffb9bdd09"
+                "reference": "fd5e5a09ccd898fc0407e7589908f7bc603450f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vitalybaev/php-google-merchant-feed/zipball/80c8a51b526e429fffc6e089e77f082ffb9bdd09",
-                "reference": "80c8a51b526e429fffc6e089e77f082ffb9bdd09",
+                "url": "https://api.github.com/repos/vitalybaev/php-google-merchant-feed/zipball/fd5e5a09ccd898fc0407e7589908f7bc603450f8",
+                "reference": "fd5e5a09ccd898fc0407e7589908f7bc603450f8",
                 "shasum": ""
             },
             "require": {
@@ -11152,9 +11152,9 @@
             ],
             "support": {
                 "issues": "https://github.com/vitalybaev/php-google-merchant-feed/issues",
-                "source": "https://github.com/vitalybaev/php-google-merchant-feed/tree/v2.0.0"
+                "source": "https://github.com/vitalybaev/php-google-merchant-feed/tree/v2.1.0"
             },
-            "time": "2019-07-27T07:05:47+00:00"
+            "time": "2021-03-01T14:54:14+00:00"
         },
         {
             "name": "webignition/disallowed-character-terminated-string",
