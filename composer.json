@@ -8,7 +8,7 @@
         "contao/news-bundle": "^4.11",
         "illuminate/collections": "^8.29",
         "sabre/xml": "^2.2",
-        "vitalybaev/google-merchant-feed": "^2.0",
+        "vitalybaev/google-merchant-feed": "^2.1",
         "league/flysystem-bundle": "^2.0",
         "contao/manager-plugin": "^2.11"
     },
