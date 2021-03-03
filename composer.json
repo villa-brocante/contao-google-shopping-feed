@@ -6,7 +6,7 @@
     "require": {
         "contao/core-bundle": "^4.10",
         "contao/news-bundle": "^4.11",
-        "illuminate/collections": "^8.29",
+        "illuminate/collections": "^8.30",
         "sabre/xml": "^2.2",
         "vitalybaev/google-merchant-feed": "^2.1",
         "league/flysystem-bundle": "^2.0",
