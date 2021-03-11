@@ -5,11 +5,11 @@
     "license": "MIT",
     "require": {
         "contao/core-bundle": "^4.10",
-        "contao/news-bundle": "^4.10",
-        "illuminate/collections": "^8.21",
+        "contao/news-bundle": "^4.11",
+        "illuminate/collections": "^8.32",
         "sabre/xml": "^2.2",
-        "vitalybaev/google-merchant-feed": "^2.0",
-        "league/flysystem-bundle": "^1.5",
+        "vitalybaev/google-merchant-feed": "^2.1",
+        "league/flysystem-bundle": "^2.0",
         "contao/manager-plugin": "^2.11"
     },
     "autoload": {
