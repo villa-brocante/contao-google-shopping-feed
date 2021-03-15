@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "31f0cce9abf9b33d490b88e4c3c8186a",
+    "content-hash": "7fb795500523f0ec34de3b467184450c",
     "packages": [
         {
             "name": "ausi/slug-generator",
@@ -11426,16 +11426,16 @@
     "packages-dev": [
         {
             "name": "contao/test-case",
-            "version": "4.2.3",
+            "version": "4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/contao/test-case.git",
-                "reference": "153e9e90277db957865fc7f5495c83abd8bcb264"
+                "reference": "31d1741d5d6ef82e525b9ede89082f4e26d0fc1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/contao/test-case/zipball/153e9e90277db957865fc7f5495c83abd8bcb264",
-                "reference": "153e9e90277db957865fc7f5495c83abd8bcb264",
+                "url": "https://api.github.com/repos/contao/test-case/zipball/31d1741d5d6ef82e525b9ede89082f4e26d0fc1f",
+                "reference": "31d1741d5d6ef82e525b9ede89082f4e26d0fc1f",
                 "shasum": ""
             },
             "require": {
@@ -11472,9 +11472,9 @@
             "description": "Contao 4 test case",
             "support": {
                 "issues": "https://github.com/contao/test-case/issues",
-                "source": "https://github.com/contao/test-case/tree/4.2.3"
+                "source": "https://github.com/contao/test-case/tree/4.3.0"
             },
-            "time": "2021-01-14T16:45:25+00:00"
+            "time": "2021-03-12T08:20:17+00:00"
         },
         {
             "name": "myclabs/deep-copy",
