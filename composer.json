@@ -32,7 +32,7 @@
         }
     },
     "require-dev": {
-        "contao/test-case": "^4.2",
+        "contao/test-case": "^4.3",
         "phpunit/phpunit": "^9.5",
         "roave/security-advisories": "dev-latest"
     },
