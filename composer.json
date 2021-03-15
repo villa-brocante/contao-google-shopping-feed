@@ -1,16 +1,27 @@
 {
-    "name":"villa-brocante/contao-google-shopping-feed",
+    "name": "villa-brocante/contao-google-shopping-feed",
     "type": "contao-bundle",
     "description": "Provide access to Google Shopping Feed library for Contao CMS.",
     "license": "MIT",
     "require": {
         "contao/core-bundle": "^4.10",
+        "contao/manager-plugin": "^2.11",
         "contao/news-bundle": "^4.11",
         "illuminate/collections": "^8.32",
-        "sabre/xml": "^2.2",
-        "vitalybaev/google-merchant-feed": "^2.1",
         "league/flysystem-bundle": "^2.0",
-        "contao/manager-plugin": "^2.11"
+        "sabre/xml": "^2.2",
+        "vitalybaev/google-merchant-feed": "^2.1"
+    },
+    "require-dev": {
+        "contao/test-case": "^4.3",
+        "phpunit/phpunit": "^9.5",
+        "roave/security-advisories": "dev-latest"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "contao-manager-plugin": "VillaBrocante\\GoogleShoppingFeed\\ContaoManager\\Plugin"
     },
     "autoload": {
         "psr-4": {
@@ -30,17 +41,6 @@
         "psr-4": {
             "VillaBrocante\\GoogleShoppingFeed\\Tests\\": "tests/"
         }
-    },
-    "require-dev": {
-        "contao/test-case": "^4.3",
-        "phpunit/phpunit": "^9.5",
-        "roave/security-advisories": "dev-latest"
-    },
-    "config": {
-        "sort-packages": true
-    },
-    "extra": {
-        "contao-manager-plugin": "VillaBrocante\\GoogleShoppingFeed\\ContaoManager\\Plugin"
     },
     "scripts": {
         "test": "./vendor/bin/phpunit"
